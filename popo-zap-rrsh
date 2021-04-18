@@ -1,0 +1,23 @@
+#!/bin/sh
+
+
+rrsh4port4pport () {
+    target_host=localhost
+    #target_port=22
+    target_port=${1}
+    proxy_user=ec2-user
+    proxy_host=zapazap.net
+    #proxy_port=2222
+    proxy_port=${2}
+    pem=~/.ssh/arf.pem
+    echo }} ssh -fN -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+    ssh -N -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+    return $?
+}
+
+
+while true; do
+    rrsh4port4pport 22 2222
+    echo fail. retrying in ten sec.
+    sleep 10
+done

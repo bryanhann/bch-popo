@@ -1,0 +1,1 @@
+ssh -i ~/.ssh/arf.pem ec2-user@zapazap.net
