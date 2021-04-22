@@ -8,8 +8,14 @@ rrsh4port4pport () {
     proxy_user=ec2-user
     proxy_host=zapazap.net
     pem=~/.ssh/arf.pem
-    echo }} ssh -fN -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
-            ssh -N -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+
+    opt1="-o UserKnownHostsFile=/dev/null"
+    opt2="-o StrictHostKeychecking=no"
+
+    #echo }} ssh -fN -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+    #        ssh -N -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+    echo }} ssh ${op1} ${opt2} -N -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
+            ssh ${op1} ${opt2} -N -R ${proxy_port}:${target_host}:${target_port} -i ${pem} ${proxy_user}@${proxy_host}
     return $?
 }
 
