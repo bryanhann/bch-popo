@@ -2,6 +2,7 @@
 cp ./popo.service /etc/systemd/system/
 cp ./popo-rssh.bash /usr/local/bin
 
+#systemctl daemon-reexec
 systemctl daemon-reload
 systemctl start popo
 systemctl enable popo

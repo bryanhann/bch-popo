@@ -1,5 +1,5 @@
 [Unit]
-Description=POPO rssh service
+Description=The POPO rssh service
 After=network.target
 StartLimitIntervalSec=0
 
@@ -7,8 +7,8 @@ StartLimitIntervalSec=0
 Type=simple
 Restart=always
 RestartSec=1
-User=centos
-ExecStart=/usr/bin/env bash /usr/local/bin/popo-rssh.bash
+User=pi
+ExecStart=/usr/local/bin/popo-rssh.bash
 
 [Install]
 WantedBy=multi-user.target
