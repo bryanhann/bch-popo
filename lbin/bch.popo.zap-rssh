@@ -1,0 +1,20 @@
+#!/bin/sh
+
+export target_port=${1-22}
+export proxy_port=${2-2222}
+. bch.popo.config.sh
+
+export cmd="ssh\
+ -o UserKnownHostsFile=/dev/null \
+ -o StrictHostKeychecking=no     \
+ -N  \
+ -R ${proxy_port}:${BCH_APP_POPO_target_host}:${target_port} \
+ -i ${BCH_APP_POPO_pem_file} ${BCH_APP_POPO_proxy}
+ "
+
+while true; do
+    echo }}} $cmd
+    $cmd
+    echo fail. retrying in ten sec.
+    sleep 10
+done

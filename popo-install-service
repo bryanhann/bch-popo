@@ -1,8 +1,0 @@
-files=$(dirname $0)/files
-sudo cp $files/popo.service   /etc/systemd/system/
-sudo cp $files/popo-rssh.bash /usr/local/bin
-
-#systemctl daemon-reexec
-sudo systemctl daemon-reload
-sudo systemctl start popo
-sudo systemctl enable popo

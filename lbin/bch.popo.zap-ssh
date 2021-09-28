@@ -1,0 +1,4 @@
+#/bin/sh
+. bch.popo.config.sh
+
+ssh -i ${BCH_APP_POPO_pem_file} {BCH_APP_POPO_proxy}

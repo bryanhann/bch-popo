@@ -1,0 +1,9 @@
+#!/bin/sh
+
+sudo cp ${BCH_APP_POPO_FILES}/popo.service   /etc/systemd/system/
+sudo cp ${BCH_APP_POPO_FILES}/popo-rssh.bash /usr/local/bin
+
+#systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl start popo
+sudo systemctl enable popo

@@ -1,1 +1,4 @@
-export PATH=${PATH}:$(dirname ${PWD})
+#!/source/this/sh
+__lbin_default
+cd ..
+export BCH_APP_POPO_FILES=${PWD}/files
